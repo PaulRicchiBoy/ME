@@ -43,7 +43,7 @@ export default function Preloader() {
         >
           {/* === VIDEO DE FONDO COMPLETO === */}
           <video
-            src="/hero-video-preloader.mp4"
+            src="/preloader-new.mp4"
             autoPlay
             loop
             muted
