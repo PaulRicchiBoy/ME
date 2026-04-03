@@ -1,6 +1,6 @@
 'use client';
 
-import { Download, Linkedin, Github, Mail, Sparkles } from 'lucide-react';
+import { Download, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
@@ -107,16 +107,17 @@ export function Hero() {
             Desarrollador web dinámico y especialista en SEO. Creo animaciones fluidas, implemento tecnologías modernas y ejecuto estrategias de posicionamiento que hacen que tu marca domine los buscadores y crezca en internet.
           </motion.p>
 
+          {/* === BOTONES DESCARGAR CV Y CONTACTAR AHORA UNO AL LADO DEL OTRO === */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 1 }}
-            className="flex flex-wrap gap-6"
+            className="flex gap-6"  
           >
-            <motion.div whileHover={{ scale: 1.08, y: -6 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.08, y: -6 }} whileTap={{ scale: 0.95 }} className="flex-1 md:flex-none">
               <Button
                 size="lg"
-                className="relative px-16 py-9 text-2xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-[0_0_70px_-15px] shadow-cyan-400 overflow-hidden group"
+                className="relative w-full md:w-auto px-16 py-9 text-2xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-[0_0_70px_-15px] shadow-cyan-400 overflow-hidden group"
               >
                 <span className="relative z-10 flex items-center gap-5">
                   <Download className="w-8 h-8" />
@@ -126,11 +127,11 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.08, y: -6 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.08, y: -6 }} whileTap={{ scale: 0.95 }} className="flex-1 md:flex-none">
               <Button
                 size="lg"
                 variant="outline"
-                className="px-16 py-9 text-2xl font-medium border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-950/80 hover:text-white backdrop-blur-3xl transition-all hover:shadow-[0_0_60px_-10px] hover:shadow-cyan-400"
+                className="relative w-full md:w-auto px-16 py-9 text-2xl font-medium border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-950/80 hover:text-white backdrop-blur-3xl transition-all hover:shadow-[0_0_60px_-10px] hover:shadow-cyan-400"
                 onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Mail className="w-8 h-8 mr-5" />
@@ -138,56 +139,28 @@ export function Hero() {
               </Button>
             </motion.div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6 }}
-            className="flex gap-8"
-          >
-            <motion.a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -8 }}
-              whileTap={{ scale: 0.9 }}
-              className="group"
-            >
-              <div className="w-20 h-20 rounded-3xl bg-slate-900/90 border border-slate-700 hover:border-cyan-400 flex items-center justify-center transition-all hover:shadow-[0_0_40px_-8px] hover:shadow-cyan-400">
-                <Linkedin className="w-11 h-11 text-slate-400 group-hover:text-cyan-400 transition-colors" />
-              </div>
-            </motion.a>
-
-            <motion.a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -8 }}
-              whileTap={{ scale: 0.9 }}
-              className="group"
-            >
-              <div className="w-20 h-20 rounded-3xl bg-slate-900/90 border border-slate-700 hover:border-purple-400 flex items-center justify-center transition-all hover:shadow-[0_0_40px_-8px] hover:shadow-purple-400">
-                <Github className="w-11 h-11 text-slate-400 group-hover:text-purple-400 transition-colors" />
-              </div>
-            </motion.a>
-          </motion.div>
         </motion.div>
 
-        {/* Columna derecha vacía (video es el fondo) */}
+        {/* === COLUMNA DERECHA VACÍA (limpia) === */}
         <div className="md:col-span-5 hidden md:block" />
       </div>
 
       {/* Línea de luz inferior */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[720px] h-px bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent z-30" />
 
-      {/* Sparkle flotante */}
-      <motion.div
-        animate={{ rotate: [0, 40, -40, 0], scale: [1, 1.3, 1] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-12 right-12 z-30 hidden xl:block"
+      {/* === ÚNICO BOTÓN WHATSAPP FLOTANTE EN LA ESQUINA INFERIOR DERECHA === */}
+      <motion.a
+        href="https://wa.me/51999999999" 
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-8 right-8 z-[9999] w-16 h-16 bg-emerald-500 rounded-3xl flex items-center justify-center shadow-[0_0_40px_-8px] shadow-emerald-400 hover:shadow-emerald-300 transition-all"
       >
-        <Sparkles className="w-20 h-20 text-yellow-300 drop-shadow-[0_0_45px_rgb(250,204,21)]" />
-      </motion.div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="white" className="drop-shadow-md">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.485-.888-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.355L2 22l1.395-5.082a9.9 9.9 0 01-1.333-5.272C2.062 5.5 7.562 0 14.036 0 20.51 0 26 5.5 26 11.973c0 6.474-5.49 11.973-12.021 11.973" />
+        </svg>
+      </motion.a>
     </section>
   );
 }

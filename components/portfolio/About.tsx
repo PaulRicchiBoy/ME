@@ -38,7 +38,7 @@ export function About() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* TÍTULO NEON */}
+        {/* TÍTULO NEON (exacto como en tu imagen) */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export function About() {
 
         <div className="grid md:grid-cols-12 gap-12 items-start">
           
-          {/* === PERFIL PROFESIONAL (ya te gustaba) === */}
+          {/* === PERFIL PROFESIONAL - CAJA GRANDE CON VIDEO (exacto como en la imagen) === */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -70,29 +70,32 @@ export function About() {
             transition={{ duration: 1.1 }}
             className="md:col-span-7"
           >
-            <div className="bg-slate-900/60 backdrop-blur-3xl border border-cyan-400/30 rounded-3xl p-8 shadow-2xl shadow-cyan-500/20 hover:border-cyan-400/60 transition-all duration-500">
+            <div className="bg-slate-900/70 backdrop-blur-3xl border border-cyan-400/40 rounded-3xl p-8 shadow-2xl shadow-cyan-500/30 hover:border-cyan-400/70 transition-all">
               <h3 className="text-4xl font-bold text-white mb-8 tracking-wide text-center md:text-left">
                 Perfil Profesional
               </h3>
 
-              <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/40 mb-8">
+              {/* Área de video grande con borde neon */}
+              <div className="relative rounded-3xl overflow-hidden border-4 border-cyan-400 mb-8 bg-slate-950">
                 <video
-                  src="/about2.mp4"
+                  src="/videoabout.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   className="w-full aspect-video object-cover"
                 />
-                {/* Borde fuego azul animado */}
+                {/* Glow neon animado */}
                 <motion.div
                   className="absolute inset-0 border-4 border-cyan-400 rounded-3xl pointer-events-none"
-                  animate={{ boxShadow: ['0 0 15px #22d3ee', '0 0 40px #22d3ee', '0 0 15px #22d3ee'] }}
+                  animate={{ boxShadow: ['0 0 15px #22d3ee', '0 0 45px #22d3ee', '0 0 15px #22d3ee'] }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 />
               </div>
 
-              <div className="space-y-6 text-slate-200 text-xl leading-relaxed">
+              {/* Texto debajo del video */}
+              <div className="text-slate-200 text-xl leading-relaxed space-y-6">
                 <p>
                   Desarrollador web dinámico y <span className="text-cyan-400 font-medium">especialista en SEO</span>. 
                   Creo animaciones fluidas, implemento tecnologías modernas y ejecuto estrategias de posicionamiento 
@@ -106,7 +109,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* === 4 CARDS SECUNDARIOS MEJORADOS (uniformes, más animados y bonitos) === */}
+          {/* === TARJETAS DE HIGHLIGHTS (estilo exacto de tu imagen) === */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -117,12 +120,11 @@ export function About() {
             {highlights.map((item, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.08, y: -14 }}
+                whileHover={{ scale: 1.05, y: -10 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="group h-full bg-slate-900/60 backdrop-blur-3xl border border-cyan-400/20 rounded-3xl p-6 hover:border-cyan-400/70 hover:shadow-2xl hover:shadow-cyan-500/40 transition-all duration-300 flex flex-col"
+                className="group bg-slate-900/70 backdrop-blur-3xl border border-cyan-400/40 rounded-3xl p-6 hover:border-cyan-400/80 hover:shadow-2xl hover:shadow-cyan-500/40 transition-all flex flex-col"
               >
-                {/* IMAGEN CON EFECTO NEON */}
-                <div className="relative w-full aspect-square mb-6 rounded-3xl overflow-hidden border-2 border-cyan-400/30 group-hover:border-cyan-400/80 transition-all">
+                <div className="relative w-full aspect-square mb-6 rounded-3xl overflow-hidden border-2 border-cyan-400/30 group-hover:border-cyan-400/80">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -130,7 +132,6 @@ export function About() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="160px"
                   />
-                  {/* Borde fuego azul animado */}
                   <motion.div
                     className="absolute inset-0 border-4 border-cyan-400 rounded-3xl pointer-events-none"
                     animate={{ boxShadow: ['0 0 12px #22d3ee', '0 0 35px #22d3ee', '0 0 12px #22d3ee'] }}
@@ -148,37 +149,6 @@ export function About() {
             ))}
           </motion.div>
         </div>
-
-        {/* STATS (sin cambios) */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="grid md:grid-cols-3 gap-8 mt-20"
-        >
-          {/* ... stats igual que antes ... */}
-          <div className="group relative bg-gradient-to-br from-slate-900 to-slate-800/90 border border-cyan-400/30 rounded-3xl p-10 text-center hover:border-cyan-400/70 hover:shadow-[0_0_60px_-15px] hover:shadow-cyan-400/40 transition-all">
-            <div className="text-7xl font-black bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgb(103,232,249)]">
-              FULL
-            </div>
-            <p className="text-2xl font-medium text-slate-300 tracking-widest">Velocidad</p>
-          </div>
-
-          <div className="group relative bg-gradient-to-br from-slate-900 to-slate-800/90 border border-purple-400/30 rounded-3xl p-10 text-center hover:border-purple-400/70 hover:shadow-[0_0_60px_-15px] hover:shadow-purple-400/40 transition-all">
-            <div className="text-7xl font-black bg-gradient-to-r from-purple-300 to-pink-400 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgb(168,85,247)]">
-              100%
-            </div>
-            <p className="text-2xl font-medium text-slate-300 tracking-widest">COMPROMISO TOTAL</p>
-          </div>
-
-          <div className="group relative bg-gradient-to-br from-slate-900 to-slate-800/90 border border-cyan-400/30 rounded-3xl p-10 text-center hover:border-cyan-400/70 hover:shadow-[0_0_60px_-15px] hover:shadow-cyan-400/40 transition-all">
-            <div className="text-7xl font-black bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgb(103,232,249)]">
-              SEO
-            </div>
-            <p className="text-2xl font-medium text-slate-300 tracking-widest">ESPECIALIZACIÓN</p>
-          </div>
-        </motion.div>
       </div>
 
       {/* LÍNEA DE LUZ INFERIOR */}
