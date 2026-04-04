@@ -46,39 +46,48 @@ export function Navigation() {
     }
   };
 
+  // Secciones sin INICIO
+  const menuItems = [
+    { label: 'SOBRE MÍ', id: 'sobre-mi' },
+    { label: 'EXPERIENCIA', id: 'experiencia' },
+    { label: 'HABILIDADES', id: 'habilidades' },
+  ];
+
   return (
     <>
       {/* NAV BAR */}
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-slate-950/95 backdrop-blur-3xl border-b border-cyan-400/30 shadow-2xl shadow-cyan-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           
-          {/* LOGO */}
+          {/* LOGO + PROGRAM FACTORY (izquierda) */}
           <motion.div
-            whileHover={{ scale: 1.08 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="cursor-pointer shrink-0"
+            className="cursor-pointer flex items-center gap-3 shrink-0"
             onClick={() => scrollToSection('inicio')}
           >
+            {/* Logo circular */}
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full border-2 border-cyan-400/50 overflow-hidden flex items-center justify-center bg-slate-900 hover:border-cyan-400 transition-all">
               <Image
-                src="/logo.png"
-                alt="Paul Waldir Logo"
+                src="/logo.jpg"
+                alt="Program Factory Logo"
                 width={48}
                 height={48}
                 className="object-contain drop-shadow-[0_0_15px_rgb(103,232,249)]"
                 priority
               />
             </div>
+
+            {/* Texto PROGRAM FACTORY */}
+            <div className="flex flex-col leading-none">
+              <span className="font-black tracking-[3px] text-2xl sm:text-3xl text-white">PROGRAM</span>
+              <span className="font-black tracking-[3px] text-2xl sm:text-3xl text-cyan-400 -mt-1">FACTORY</span>
+            </div>
           </motion.div>
 
-          {/* MENÚ DESKTOP */}
-          <div className="hidden md:flex items-center justify-center flex-1 gap-8 lg:gap-12">
-            {[
-              { label: 'INICIO', id: 'inicio' },
-              { label: 'SOBRE MÍ', id: 'sobre-mi' },
-              { label: 'EXPERIENCIA', id: 'experiencia' },
-              { label: 'HABILIDADES', id: 'habilidades' },
-            ].map((item) => (
+          {/* MENÚ DESKTOP (derecha) */}
+          <div className="hidden md:flex items-center gap-8 lg:gap-12">
+            {menuItems.map((item) => (
               <motion.button
                 key={item.id}
                 whileHover={{ y: -3 }}
@@ -130,12 +139,7 @@ export function Navigation() {
             >
               <div className="flex flex-col h-full pt-8 pb-12 px-6 overflow-y-auto">
                 <div className="flex flex-col gap-3">
-                  {[
-                    { label: 'INICIO', id: 'inicio' },
-                    { label: 'SOBRE MÍ', id: 'sobre-mi' },
-                    { label: 'EXPERIENCIA', id: 'experiencia' },
-                    { label: 'HABILIDADES', id: 'habilidades' },
-                  ].map((item, index) => (
+                  {menuItems.map((item, index) => (
                     <motion.button
                       key={item.id}
                       initial={{ opacity: 0, x: 40 }}
